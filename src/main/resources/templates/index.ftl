@@ -3,7 +3,8 @@
 <html lang="en">
 
 <body>
-	welcome,${name}
+	welcome,${name}</br>
+	number is : ${number}
 </body>
 
 </html>

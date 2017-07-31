@@ -1,0 +1,32 @@
+# Server settings
+server:
+    port:8080
+    address:localhost
+
+
+
+# SPRING PROFILES
+spring:       
+    # HTTP ENCODING
+    http:
+        encoding.charset: UTF-8
+        encoding.enable: true
+        encoding.force: true
+        
+    # DATASOURCE
+    datasource: 
+        url: jdbc:mysql://127.0.0.1:3306/song
+        driver-class-name: com.mysql.jdbc.Driver 
+        username: root
+        password: songjin
+
+# MyBatis
+mybatis:
+    typeAliasesPackage: com.song.repository
+    mapperLocations: classpath:mapper/*.xml
+    configLocation: classpath:conf/mybatis-config.xml
+
+# LOGGING
+logging:
+    level:
+       com.ibatis:DEBUG
