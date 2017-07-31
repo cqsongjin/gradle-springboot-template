@@ -1,0 +1,38 @@
+// Apply the java plugin to add support for Java
+// apply plugin: 'java'
+// apply plugin: 'war'
+plugins {
+    id 'java'
+    id 'war'
+    id "org.springframework.boot" version "1.5.6.RELEASE"
+    id "eclipse"
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+webAppDirName = "webapp"
+// In this section you declare where to find the dependencies of your project
+repositories {
+    maven {url 'http://maven.aliyun.com/nexus/content/groups/public/'}
+    //mavenLocal()
+}
+
+dependencies {
+    compile 'org.slf4j:slf4j-api:1.7.22'
+    compile("org.springframework.boot:spring-boot-starter-freemarker")
+    testCompile("org.springframework.boot:spring-boot-starter-test")
+    //testCompile 'junit:junit:4.12'
+}
+
+
+
+task createJavaProject << {
+    sourceSets*.java.srcDirs*.each{ it.mkdirs() }
+    sourceSets*.resources.srcDirs*.each{ it.mkdirs()}
+}
+ 
+task createWebProject(dependsOn: 'createJavaProject') << {
+    def webAppDir = file("$webAppDirName")
+    webAppDir.mkdirs()
+}
+
