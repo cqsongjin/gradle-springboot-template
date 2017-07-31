@@ -1,3 +1,3 @@
-#Mon Jul 31 14:48:21 CST 2017
-connection.gradle.distribution=GRADLE_DISTRIBUTION(WRAPPER)
+connection.gradle.distribution=GRADLE_DISTRIBUTION(LOCAL_INSTALLATION(C\:\\Users\\Administrator.MAIPU-20170630Y\\.posh_gvm\\gradle\\3.5))
 connection.project.dir=
+eclipse.preferences.version=1
