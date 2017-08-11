@@ -6,4 +6,10 @@
     <select id="getNum" resultType="int">
       select count(*) from user_info
     </select>
-</mapper>
+    <select id="getResult" resultType="com.song.web.pojo.Result" statementType="CALLABLE" parameterType="com.song.web.pojo.Result">
+        {call testselect(#{currentPage, mode=IN, jdbcType=VARCHAR},
+        #{pageSize, mode=IN, jdbcType=VARCHAR},
+        #{pageSize, mode=IN, jdbcType=VARCHAR},
+        #{pageSize, mode=IN, jdbcType=VARCHAR})}
+    </select>
+    </mapper>

@@ -15,7 +15,7 @@ spring:
         
     # DATASOURCE
     datasource: 
-        url: jdbc:mysql://127.0.0.1:3306/song
+        url: jdbc:mysql://127.0.0.1:3306/baron
         driver-class-name: com.mysql.jdbc.Driver 
         username: root
         password: songjin

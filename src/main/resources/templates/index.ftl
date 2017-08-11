@@ -4,7 +4,7 @@
 
 <body>
 	welcome,${name}</br>
-	number is : ${number}
+	number is :
 </body>
 
 </html>

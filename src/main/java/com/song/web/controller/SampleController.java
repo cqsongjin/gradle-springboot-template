@@ -1,6 +1,7 @@
 package com.song.web.controller;
 
 
+import com.song.web.pojo.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,7 +23,9 @@ public class SampleController {
 		String name = "songjin";
 		ModelAndView model = new ModelAndView("index");
 		model.addObject("name", name);
-		model.addObject("number", service.getNum());
+		//model.addObject("number", service.getNum());
+		Result result = service.getResult(0, 3);
+		System.out.println(result);
 		return model;
 	}
 }
