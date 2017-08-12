@@ -3,13 +3,18 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.song.web.repository.SampleMapper">
+    <resultMap type="java.lang.Integer" id="count">
+        <result column="count" jdbcType="INTEGER" />
+    </resultMap>
+    <resultMap id="result" type="java.util.HashMap">
+        <result column="id" jdbcType="INTEGER" property="id" />
+        <result column="name" jdbcType="VARCHAR" property="name" />
+    </resultMap>
     <select id="getNum" resultType="int">
       select count(*) from user_info
     </select>
-    <select id="getResult" resultType="com.song.web.pojo.Result" statementType="CALLABLE" parameterType="com.song.web.pojo.Result">
-        {call testselect(#{currentPage, mode=IN, jdbcType=VARCHAR},
-        #{pageSize, mode=IN, jdbcType=VARCHAR},
-        #{pageSize, mode=IN, jdbcType=VARCHAR},
-        #{pageSize, mode=IN, jdbcType=VARCHAR})}
+    <select id="getResult" resultMap="result,count" statementType="CALLABLE" parameterType="com.song.web.pojo.Result">
+        {call testselect(#{currentPage, mode=IN, jdbcType=INTEGER},
+        #{pageSize, mode=IN, jdbcType=INTEGER})}
     </select>
     </mapper>

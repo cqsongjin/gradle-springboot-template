@@ -6,6 +6,8 @@ import org.springframework.stereotype.Service;
 
 import com.song.web.repository.SampleMapper;
 
+import java.util.List;
+
 @Service
 public class SampleService {
 	
@@ -14,10 +16,10 @@ public class SampleService {
 	public int getNum() {
 		return mapper.getNum();
 	}
-	public Result getResult(int currentPage, int pageSize) {
+	public List getResult(int currentPage, int pageSize) {
 		Result result = new Result();
-		result.setCurrentPage(0);
-		result.setPageSize(3);
+		result.setCurrentPage(currentPage);
+		result.setPageSize(pageSize);
 		return mapper.getResult(result);
 	}
 }
